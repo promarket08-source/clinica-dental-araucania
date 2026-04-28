@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Dental Araucanía | Sonrisas Perfectas en Temuco</title>
+    <meta name="description" content="Clínica dental premium en Temuco. Diseño de sonrisa, implantes, ortodoncia invisible. Tecnología alemana y especialistas certificados. Reserva tu evaluación estética.">
+    <meta name="keywords" content="clinica dental, odontologia, diseño de sonrisa, implantes, ortodoncia invisible, temuco, araucania, dentista">
+    <meta name="geo.region" content="CL-AR">
+    <meta name="geo.placename" content="Temuco, Chile">
+    <meta property="og:title" content="Clínica Dental Araucanía | Sonrisas Perfectas">
+    <meta property="og:description" content="La ciencia detrás de una sonrisa inolvidable. Odontología de alta precisión en Temuco.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563EB;
+            --primary-dark: #1D4ED8;
+            --accent: #0F172A;
+            --gold: #D4AF37;
+            --white: #FFFFFF;
+            --white-soft: #F8FAFC;
+            --gray: #64748B;
+            --gray-light: #E2E8F0;
+            --success: #10B981;
+            --shadow: 0 10px 40px rgba(0,0,0,0.1);
+            --shadow-lg: 0 20px 60px rgba(0,0,0,0.15);
+            --gradient: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--accent);
+            background: var(--white);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: var(--white);
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+
+        .btn-ghost:hover {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+
+        .header.scrolled {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: var(--shadow);
+            padding: 15px 50px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo img {
+            height: 50px;
+            border-radius: 10px;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .header.scrolled .logo-text { color: var(--accent); }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        .header.scrolled .nav-links a { color: var(--accent); }
+        .nav-links a:hover { color: var(--primary); }
+
+        .nav-cta {
+            background: var(--white);
+            color: var(--primary);
+            padding: 10px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .nav-cta:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.7) 0%, rgba(15, 23, 42, 0.5) 50%, rgba(15, 23, 42, 0.8) 100%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: var(--white);
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .hero-content .subtitle {
+            font-size: 22px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Social Proof */
+        .social-proof {
+            background: var(--white-soft);
+            padding: 30px 50px;
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .social-proof-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--gray);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .social-proof-item i {
+            color: var(--primary);
+            font-size: 20px;
+        }
+
+        /* Services */
+        .services {
+            padding: 120px 50px;
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: var(--white-soft);
+            border-radius: 24px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid var(--gray-light);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 32px;
+            color: var(--white);
+        }
+
+        .service-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .service-card p {
+            color: var(--gray);
+            font-size: 15px;
+        }
+
+        /* Experience */
+        .experience {
+            padding: 120px 50px;
+            background: var(--white-soft);
+        }
+
+        .experience-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .experience-text h2 {
+            font-size: 42px;
+            margin-bottom: 25px;
+            color: var(--accent);
+        }
+
+        .experience-text p {
+            color: var(--gray);
+            font-size: 17px;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .experience-features {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .experience-feature {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 500;
+        }
+
+        .experience-feature i {
+            color: var(--success);
+        }
+
+        .experience-image img {
+            width: 100%;
+            border-radius: 24px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 120px 50px;
+            background: var(--white);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: var(--white-soft);
+            border-radius: 24px;
+            padding: 35px;
+            border: 1px solid var(--gray-light);
+        }
+
+        .testimonial-card .stars {
+            color: var(--gold);
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-card p {
+            color: var(--gray);
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .testimonial-card .author {
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        /* CTA */
+        .cta {
+            padding: 120px 50px;
+            background: var(--gradient);
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 48px;
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 20px;
+            color: var(--white);
+            opacity: 0.95;
+            margin-bottom: 40px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta .btn-white {
+            background: var(--white);
+            color: var(--primary);
+            font-size: 18px;
+            padding: 18px 40px;
+        }
+
+        .cta .btn-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
+            padding: 80px 50px 30px;
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            height: 50px;
+            border-radius: 10px;
+        }
+
+        .footer-logo span {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .footer-text {
+            opacity: 0.7;
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 18px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer h4 {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-bottom p {
+            font-size: 14px;
+            opacity: 0.6;
+        }
+
+        .footer-bottom a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Floating WhatsApp */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+
+        .floating-whatsapp a {
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 28px;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .floating-whatsapp a:hover { transform: scale(1.1); }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .header { padding: 15px 20px; }
+            .nav-links { display: none; }
+            .hero-content h1 { font-size: 40px; }
+            .hero-content .subtitle { font-size: 18px; }
+            .services-grid, .testimonials-grid, .experience-content { grid-template-columns: 1fr; }
+            .social-proof { gap: 30px; padding: 30px 20px; }
+            .footer-content { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 576px) {
+            .hero-content h1 { font-size: 32px; }
+            .hero-buttons { flex-direction: column; }
+            .btn { width: 100%; justify-content: center; }
+            .services, .testimonials, .experience, .cta { padding: 60px 20px; }
+            .floating-whatsapp { bottom: 20px; right: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="logo">
+            <img src="LOGO.jpg" alt="Clínica Dental Araucanía">
+            <span class="logo-text">Dental Araucanía</span>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#services">Servicios</a></li>
+                <li><a href="#experience">Experiencia</a></li>
+                <li><a href="#testimonials">Testimonios</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </nav>
+        <a href="https://wa.me/56971086433" class="nav-cta">Agendar Cita</a>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="hero.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>La ciencia detrás de una sonrisa inolvidable</h1>
+            <p class="subtitle">Odontología de alta precisión y estética avanzada en un entorno diseñado para tu bienestar</p>
+            <div class="hero-buttons">
+                <a href="https://wa.me/56971086433" class="btn btn-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    Reserva tu Evaluación Estética
+                </a>
+                <a href="#services" class="btn btn-ghost">
+                    Ver Servicios
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="social-proof">
+        <div class="social-proof-item">
+            <i class="fas fa-cogs"></i>
+            <span>Tecnología Alemana</span>
+        </div>
+        <div class="social-proof-item">
+            <i class="fas fa-user-md"></i>
+            <span>Especialistas Certificados</span>
+        </div>
+        <div class="social-proof-item">
+            <i class="fas fa-smile"></i>
+            <span>+10,000 Sonrisas Creadas</span>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+        <div class="section-header">
+            <h2>Nuestros Servicios</h2>
+            <p>Tratamientos dentales de última generación para tu sonrisa perfecta</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="fas famagic-wand-sparkles"></i></div>
+                <h3>Diseño de Sonrisa</h3>
+                <p>Transformamos tu sonrisa con tecnología digital 3D para lograr resultados perfectos y naturales.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-tooth"></i></div>
+                <h3>Implantes de Carga Inmediata</h3>
+                <p>Recupera tus dientes en el mismo día con nuestra tecnología de implantes avanzado.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-teeth"></i></div>
+                <h3>Ortodoncia Invisible</h3>
+                <p>Alineadores transparenciales para corregir tu sonrisa sin que nadie lo note.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="experience" id="experience">
+        <div class="experience-content">
+            <div class="experience-text">
+                <h2>Una experiencia diseñadas para ti</h2>
+                <p>En Clínica Dental Araucanía combinamos tecnología de punta con un ambiente cálido y relajante para que tu visita al dentista sea una experiência placentera.</p>
+                <p>Nuestros especialistas están capacitados en las técnicas más avanzadas para garantizar resultados excepcionales.</p>
+                <div class="experience-features">
+                    <div class="experience-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Diagnóstico digital gratuito</span>
+                    </div>
+                    <div class="experience-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Tratamiento sin dolor</span>
+                    </div>
+                    <div class="experience-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Garantía en todos los tratamientos</span>
+                    </div>
+                    <div class="experience-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Financiamiento flexible</span>
+                    </div>
+                </div>
+            </div>
+            <div class="experience-image">
+                <img src="ejemplo web.jpg" alt="Experiencia del paciente">
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="section-header">
+            <h2>Lo que dicen nuestros pacientes</h2>
+            <p>Transformaciones reales que han cambiado vidas</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>"Nunca había ido al dentista con tanta tranquilidad. El Dr. fue muy amable y el resultado de mi sonrisa fue increíble. Recomendado 100%"</p>
+                <div class="author">- María José Silva</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>"Me puse implantes y en el mismo día pude comer normal. La tecnología que usan es impresionante. Gracias Clínica Dental Araucanía"</p>
+                <div class="author">- Carlos Mendoza</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>"Mi ortodoncia invisible fue absolutamente discreta. Nadie notó que la estaba usando y en pocos meses tengo la sonrisa que siempre quise"</p>
+                <div class="author">- Ana López</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="contact">
+        <h2>¿Listo para tu nueva sonrisa?</h2>
+        <p>Reserva tu evaluación estética sin costo. Te esperamos.</p>
+        <div class="cta-buttons">
+            <a href="https://wa.me/56971086433" class="btn btn-white" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                Escríbenos por WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <div class="footer-logo">
+                    <img src="LOGO.jpg" alt="Clínica Dental Araucanía">
+                    <span>Dental Araucanía</span>
+                </div>
+                <p class="footer-text">Clínica dental premium en Temuco. Tecnología alemana y especialistas certificados para tu sonrisa perfecta.</p>
+                <div class="social-links">
+                    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/56971086433" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4>Enlaces</h4>
+                <ul class="footer-links">
+                    <li><a href="#services">Servicios</a></li>
+                    <li><a href="#experience">Nosotros</a></li>
+                    <li><a href="#testimonials">Testimonios</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contacto</h4>
+                <ul class="footer-links">
+                    <li><a href="https://wa.me/56971086433">+56 9 7108 6433</a></li>
+                    <li><a href="mailto:contacto@dentalaraucania.cl">contacto@dentalaraucania.cl</a></li>
+                    <li><a href="#">Temuco, Chile</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Clínica Dental Araucanía. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <div class="floating-whatsapp">
+        <a href="https://wa.me/56971086433" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
