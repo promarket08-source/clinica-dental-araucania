@@ -205,17 +205,29 @@
 
         .hero-content h1 {
             font-size: 56px;
-            font-weight: 700;
+            font-weight: 800;
             margin-bottom: 20px;
-            line-height: 1.2;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            line-height: 1.1;
+            text-shadow: 0 0 30px rgba(0, 217, 255, 0.5), 0 0 60px rgba(0, 217, 255, 0.3);
+            background: linear-gradient(135deg, #00D9FF 0%, #FFFFFF 50%, #FF6B35 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 30px rgba(0, 217, 255, 0.5), 0 0 60px rgba(0, 217, 255, 0.3); }
+            to { text-shadow: 0 0 40px rgba(255, 107, 53, 0.6), 0 0 80px rgba(255, 107, 53, 0.4); }
         }
 
         .hero-content .subtitle {
             font-size: 22px;
             margin-bottom: 40px;
             opacity: 0.95;
-            font-weight: 400;
+            font-weight: 500;
+            color: var(--white);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
         .hero-buttons {
@@ -262,8 +274,12 @@
 
         .section-header h2 {
             font-size: 48px;
+            font-weight: 800;
             margin-bottom: 15px;
-            color: var(--accent);
+            background: var(--gradient-vibrant);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .section-header p {
@@ -271,6 +287,7 @@
             color: var(--gray);
             max-width: 600px;
             margin: 0 auto;
+            line-height: 1.6;
         }
 
         .services-grid {
@@ -632,12 +649,12 @@
         </video>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1>La ciencia detrás de una sonrisa inolvidable</h1>
-            <p class="subtitle">Odontología de alta precisión y estética avanzada en un entorno diseñado para tu bienestar</p>
+            <h1>Tu sonrisa perfecta comienza aquí</h1>
+            <p class="subtitle">😁 Transforma tu sonrisa con tecnología de vanguardia y especialistas certificados. ¡Reserva tu evaluación gratis!</p>
             <div class="hero-buttons">
                 <a href="https://wa.me/56971086433?text=Hola,%20quiero%20reservar%20una%20cita%20para%20evaluación%20dental" class="btn btn-whatsapp" target="_blank">
                     <i class="fab fa-whatsapp"></i>
-                    Reserva tu Evaluación Estética
+                    ¡Reservar ahora!
                 </a>
                 <a href="#services" class="btn btn-ghost">
                     Ver Servicios
@@ -746,12 +763,12 @@
 
     <!-- CTA -->
     <section class="cta" id="contact">
-        <h2>¿Listo para tu nueva sonrisa?</h2>
-        <p>Reserva tu evaluación estética sin costo. Te esperamos.</p>
+        <h2>¡Tu sonrisa soñada espera! ✨</h2>
+        <p>📩 ¡Escríbenos ahora y agenda tu evaluación gratis! Sin compromiso.</p>
         <div class="cta-buttons">
-            <a href="https://wa.me/56971086433?text=Hola,%20quiero%20reservar%20una%20cita%20para%20evaluación%20dental" class="btn btn-white" target="_blank">
+            <a href="https://wa.me/56971086433?text=Hola,%20quiero%20reservar%20mi%20evaluación%20dental" class="btn btn-white" target="_blank">
                 <i class="fab fa-whatsapp"></i>
-                Escríbenos por WhatsApp
+                ¡Reservar cita ahora!
             </a>
         </div>
     </section>
